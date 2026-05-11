@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+
+# env
+.env
+
+# build
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# vscode
+.vscode/
+
+# terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+
+# coverage
+coverage/
