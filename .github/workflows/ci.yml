@@ -47,3 +47,17 @@ jobs:
       - name: Build Frontend Docker Image 
         run: |
           docker build -t frontend-app:v1 ./frontend
+
+      - name: Trivy Backend Image Scan 
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: backend-app:v1 
+          format: table
+          exit-code: 0
+
+      - name: Trivy Frontend Image scan 
+        uses: aquasecurity/trivy-action@master
+        with: 
+          image-ref: frontend-app:v1
+          format: table
+          exit-code: 0
