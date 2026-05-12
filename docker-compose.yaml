@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    container_name: backend-container
+    ports:
+      - "5000:5000"
+    networks:
+      - fullstack-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-container
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - fullstack-network
+
+networks:
+  fullstack-network:
+    driver: bridge
+
+
+
+
