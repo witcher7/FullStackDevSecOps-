@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+      - name: backend
+        image: 825982271552.dkr.ecr.ap-south-1.amazonaws.com/backend-app:latest
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 5000
